@@ -1,6 +1,6 @@
 import pyperclip
 
-class Credentals:
+class Credentials:
     #class that generates new instances of credentials
     credential_list = []
     def __init__(self,account,username,password):
@@ -10,11 +10,11 @@ class Credentals:
 
     def save_creds(self):
         """method that saves created credentials"""
-        Credentals.credential_list.append(self)
+        Credentials.credential_list.append(self)
     
-    def delete_creds(self)
+    def delete_creds(self):
         """method that deletes credentials from our credentials list"""
-        Credentals.credential_list.remove(self)
+        Credentials.credential_list.remove(self)
 
     @classmethod
     def search_by_account(cls,account):
@@ -31,7 +31,7 @@ class Credentals:
 
     @classmethod
     def credential_exist(cls,account):
-          """
+        """
         method that checks if an account exists from the credentials_list. 
         Args:
             account: Account name to search if it exists
