@@ -5,11 +5,15 @@ class User:
         self.username = username
         self.password = password
 
-    def save_user(self):
+    @classmethod
+    def save_user(cls,username,password):
         """method that saves a created user"""
-        User.users[self.username] = self.password
+        cls.users[username] = password
 
     @classmethod
-    def login(cls,username):
-        pass
+    def login(cls,username,password):
+        """ """
+        if username in cls.users and password == cls.users[username]:
+            return True
+        return False
  
