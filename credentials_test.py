@@ -1,5 +1,6 @@
 from credentials import Credentials
 import unittest
+import pyperclip
 
 class TestCredentials(unittest.TestCase):
     """
@@ -28,7 +29,43 @@ class TestCredentials(unittest.TestCase):
 
     def test_delete_creds(self):
         """test_delete_creds testcase will check if we successfully deleter a credential from our credential_list"""
-        self.    
+        self.new_credentials.save_creds()
+        self.new_credentials.delete_creds()
+
+        self.assertEqual(len(Credentials.credential_list),0)
+
+    def test_search_by_account(self):
+        """
+        test to check if we can find account credentials by account name and display information
+        """
+        self.new_credentials.save_creds()
+        account_found = Credentials.search_by_account("Instagram")
+        
+        self.assertEqual(account_found.username,self.new_credentials.username)
+
+    def test_credential_exist(self):
+        """
+        test to check if we can return a Boolean if we cannot find the account
+        """
+        self.new_credentials.save_creds()
+        account_found = Credentials.search_by_account("Instagram")
+
+        self.assertTrue(account_found)      
+
+    def test_display_credentials(self):
+        """method that returns a list of all contacts saved
+        """
+
+        self.assertEqual(Credentials.display_credentials(),Credentials.credential_list)
+
+    def test_copy_credentials(self):
+        """
+        """
+        self.new_credentials.save_creds()
+        Credentials.copy_credentials("Instagram")
+
+        self.assertEqual(self.new_credentials.username,pyperclip.paste())
+
 
 
 if __name__=="__main__":
