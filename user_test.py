@@ -25,8 +25,8 @@ class TestUser(unittest.TestCase):
         self.new_user.save_user()
         self.assertEqual(len(User.users),1)
     
-    # def test_login(self):
-    #     """test_login will test whether an existing user can login"""
+    def test_login(self):
+        """test_login will test whether an existing user can login"""
 
 if __name__=="__main__":
     unittest.main()

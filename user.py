@@ -1,5 +1,5 @@
 class User:
-    """A class for creating users"""
+    """class for creating new instances of users"""
     users = {}
     def __init__(self,username,password):
         self.username = username
