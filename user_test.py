@@ -13,10 +13,21 @@ class TestUser(unittest.TestCase):
     
     def tearDown(self):
         """tearDown method that does clean up after each test case has run"""
-        pass
+        User.users = {}
 
+    def test_init(self):
+        """ test_init testcase to test if the object is initialized properly"""
+        self.assertEqual(self.new_user.username,"Benson")
+        self.assertEqual(self.new_user.password,"vcxz4321")
+    
+    def test_save_user(self):
+        """test_user_save will test wheather our new user gets added to the dictionary"""
+        self.new_user.save_user()
+        self.assertEqual(len(User.users),1)
+    
+    def test_login(self):
+        """test_login will test whether an existing user can login"""
 
-        
 if __name__=="__main__":
     unittest.main()
     

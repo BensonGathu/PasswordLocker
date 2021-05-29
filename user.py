@@ -5,9 +5,9 @@ class User:
         self.username = username
         self.password = password
 
-    def save_user(self,key,value):
+    def save_user(self):
         """method that saves a created user"""
-        User.users[key] = value
+        User.users[self.username] = self.password
 
     @classmethod
     def login(cls,username):
