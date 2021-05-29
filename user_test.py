@@ -15,5 +15,9 @@ class TestUser(unittest.TestCase):
         """tearDown method that does clean up after each test case has run"""
         pass
 
+
+        
+if __name__=="__main__":
+    unittest.main()
     
 
