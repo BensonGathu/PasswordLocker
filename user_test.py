@@ -22,11 +22,13 @@ class TestUser(unittest.TestCase):
     
     def test_save_user(self):
         """test_user_save will test wheather our new user gets added to the dictionary"""
-        self.new_user.save_user()
+        User.save_user(self.new_user.username,self.new_user.password)
         self.assertEqual(len(User.users),1)
     
     def test_login(self):
         """test_login will test whether an existing user can login"""
+        User.save_user(self.new_user.username,self.new_user.password)
+        self.assertTrue(User.login(self.new_user.username,self.new_user.password))
 
 if __name__=="__main__":
     unittest.main()
