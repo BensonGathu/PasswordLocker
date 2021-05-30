@@ -123,8 +123,9 @@ def main():
                         print("Here is a list of all your credentials")
                         print("")
                         print("Acc.Name:    Username    Password ")
+                        print("-"*50)
                         for creds in display_credentials():
-                            print(f"{creds.account} {creds.username} {creds.password}")
+                            print(f"{creds.account}   {creds.username}   {creds.password}")
                             print("")
                     else:
                         print("")
@@ -149,7 +150,8 @@ def main():
 
 
             else:
-                print("Incorrect details provided")
+                print("Incorrect details please try again")
+                break
                 
 
                     
