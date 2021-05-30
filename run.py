@@ -72,6 +72,7 @@ def main():
             log_username = input("Enter your username: ")
             log_password = input("Enter your password: ")
             while User.login(log_username,log_password):
+                print("")
                 print(f"Welcome: {log_username} to your Account") 
                 print('\n')
                 print("Select an option below to continue: Enter 1, 2, 3, 4 or 5")
@@ -110,9 +111,9 @@ def main():
                     account_to_find = input("Enter account name which you want to get the credentials: ")
                     if account_existance(account_to_find):
                         account = find_account(account_to_find)
-                        print(f"{account.account}")
-                        print(f"{account.username}")
-                        print(f"{account.password}")
+                        print(f"Account: {account.account}")
+                        print(f"Username: {account.username}")
+                        print(f"Password: {account.password}")
                     else:
                         print("Account doesn't exists")
                 
@@ -121,6 +122,7 @@ def main():
                     if display_credentials():
                         print("Here is a list of all your credentials")
                         print("")
+                        print("Acc.Name:    Username    Password ")
                         for creds in display_credentials():
                             print(f"{creds.account} {creds.username} {creds.password}")
                             print("")
@@ -155,7 +157,7 @@ def main():
                 
                 
         else:
-            print("You must first create an account.")
+            print("You must first create an account. use -cu-")
             # short_code == "li"
             # log_username = input("Enter your username: ")
             # log_password = input("Enter your password: ")
